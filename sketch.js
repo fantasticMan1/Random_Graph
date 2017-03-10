@@ -6,39 +6,28 @@ var interval = 500;
 var x = 0;
 
 var randomPoint = function(x) {
-	
+
 	stroke(255);
 	line(xPos + 3, height, xPos + 3, 0);
 	stroke(0);
 
-	for(var j = 0; j < 25; j++) {
+	if (lastYPos < (height - 10) && lastYPos > 10) {
 
-		if (lastYPos < (height - 10) && lastYPos > 10) {
+		yPos = random((lastYPos + 10), (lastYPos - 10));
 
-			yPos = random((lastYPos + 10), (lastYPos - 10));
+	} else if (lastYPos > (height - 10)) {
 
-		} else if (lastYPos > (height - 10)) {
+		yPos = random(height - 40, height);
 
-			yPos = random(height - 40, height);
+	} else if (lastYPos < 10) {
 
-		} else if (lastYPos < 10) {
+		yPos = random(0, 40);
 
-			yPos = random(0, 40);
-
-		}
-
-		//conect the dots
-		strokeWeight(1);
-		line(xPos - 1, lastYPos, xPos, yPos);
-		strokeWeight(3);
-
-		if (j === 25) {
-			stroke(255);
-			line(xPos, height, xPos, 0);
-		}
 	}
+	
 	xPos = x;
-	point(xPos, yPos);
+	line(xPos - 1, lastYPos, xPos, yPos);
+	//point(xPos, yPos);
 
 	lastYPos = yPos;
 }
