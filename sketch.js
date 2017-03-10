@@ -7,6 +7,8 @@ var x = 0;
 
 var randomPoint = function(x) {
 
+	stroke(255, 0, 0);
+	line(xPos + 6, height, xPos + 6, 0);
 	stroke(255);
 	line(xPos + 3, height, xPos + 3, 0);
 	stroke(0);
@@ -27,7 +29,6 @@ var randomPoint = function(x) {
 	
 	xPos = x;
 	line(xPos - 1, lastYPos, xPos, yPos);
-	//point(xPos, yPos);
 
 	lastYPos = yPos;
 }
