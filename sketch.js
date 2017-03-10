@@ -4,6 +4,26 @@ var lastYPos = 0;
 var drawPlease = true;
 var interval = 500;
 
+var connectDots = function(x1, y1, y2) {
+	
+	strokeWeight(1);
+	
+	var yDistance = y1 - y2;
+	
+	if (yDistance > 0) {
+		for (var i = 0; i < yDistance; i++) {
+			point(x1, y1 + i);
+		}
+	} else if (yDistance < 0) {
+		for (var i = 0; i > yDistance; i--) {
+			point(x1, y1 + i);
+		}
+	}
+	
+	strokeWeight(3);
+	
+}
+
 function setup () {
 	createCanvas(windowWidth, windowHeight);
 	background(255);
@@ -39,6 +59,8 @@ function draw() {
 					yPos = random(0, 40);
 
 				}
+				
+				connectDots(xPos, lastYPos, yPos);
 
 				if (j === 25) {
 					stroke(255);
