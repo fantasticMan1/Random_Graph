@@ -1,11 +1,8 @@
 var yPos = 0;
-var xPos = 0;
 var lastYPos = 0;
-var drawPlease = true;
-var interval = 500;
 var x = 0;
 
-var randomPoint = function(x) {
+var randomPoint = function(xPos) {
 
 	stroke(255, 0, 0);
 	line(xPos + 6, height, xPos + 6, 0);
@@ -27,7 +24,6 @@ var randomPoint = function(x) {
 
 	}
 	
-	xPos = x;
 	line(xPos - 1, lastYPos, xPos, yPos);
 
 	lastYPos = yPos;
@@ -45,14 +41,7 @@ function setup () {
 }
 
 function draw() {
-		
-	/*if (drawPlease) {
-		for(var i = 0; i < width; i++) {
-			window.setTimeout(randomPoint(i), 5000);
-		}
-	}
-	
-	drawPlease = false;*/
+
 	randomPoint(x);
 	x++;
 	if (x >= width) {
